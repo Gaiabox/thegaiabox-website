@@ -501,7 +501,7 @@
       </div>
 
       <div class="cform sr d3">
-        <div class="ffields" id="ffields">
+        <form class="ffields" id="ffields" name="contact" method="POST" data-netlify="true">
           <div class="ftitle">Send Us a Message</div>
           <div class="fsub">We'll respond within one business day.</div>
           <div class="frow">
@@ -525,7 +525,7 @@
           <div class="field"><label for="msg">Message</label><textarea id="msg" placeholder="Tell us about your project, portfolio, or how you'd like to work together…"></textarea></div>
           <button class="fsub-btn" onclick="doSubmit()">Send Message</button>
           <p class="fnote">Or email directly: <a href="mailto:James@theGaiabox.com" style="color:var(--green)">James@theGaiabox.com</a></p>
-        </div>
+        </form>
         <div class="fsuccess" id="fsuccess">
           <div class="sico">⚡</div>
           <div class="smsg">Message Received</div>
@@ -573,8 +573,7 @@
     if(!fn){alert('Please enter your first name.');return}
     if(!em||!em.includes('@')){alert('Please enter a valid email address.');return}
     if(!it){alert('Please let us know how you\'re reaching out.');return}
-    document.getElementById('ffields').classList.add('hide');
-    document.getElementById('fsuccess').classList.add('show');
+    document.querySelector('form[name="contact"]').submit();
   }
 </script>
 </body>

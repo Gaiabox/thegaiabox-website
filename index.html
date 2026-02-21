@@ -303,16 +303,46 @@
       .istrip{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:768px){
-      section{padding:5rem 0}#problem,#traction{padding:5rem 0}#system,#contact{padding:5rem 0}
-      .w,.nw,.fw{padding:0 1.25rem}
-      .nlinks,.ncta{display:none}.nham{display:flex}
-      .nlinks.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--ink);align-items:center;justify-content:center;gap:2rem;z-index:200}
-      .nlinks.open a{font-size:1rem}
-      .hbar{grid-template-columns:1fr}.hs{border-right:none;border-bottom:1px solid var(--rule)}.hs:last-child{border-bottom:none}
-      .pillars{grid-template-columns:1fr}.istrip{grid-template-columns:1fr}
-      .frow{grid-template-columns:1fr}
-      .fl{display:none}
-    }
+  section{padding:5rem 0}
+  #problem,#traction{padding:5rem 0}
+  #system,#contact{padding:5rem 0}
+  .w,.nw,.fw{padding:0 1.25rem}
+  .nlinks,.ncta{display:none}
+  .nham{display:flex}
+  .nlinks.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--ink);align-items:center;justify-content:center;gap:2rem;z-index:200}
+  .nlinks.open a{font-size:1rem}
+
+  /* HERO — stop text from overflowing */
+  .hh1{font-size:clamp(2.8rem,14vw,4.5rem);letter-spacing:-.01em;margin-bottom:1.75rem}
+  .hbadges{gap:.4rem}
+  .hbadge{font-size:.52rem;padding:.25rem .6rem}
+  .hrow{grid-template-columns:1fr;gap:1.75rem}
+  .hbtns{justify-content:flex-start;flex-direction:column;width:100%}
+  .hbtns .btn{width:100%;text-align:center}
+  .hdesc{font-size:.88rem;max-width:100%}
+
+  /* STAT BAR */
+  .hbar{grid-template-columns:1fr}
+  .hs{border-right:none;border-bottom:1px solid var(--rule)}
+  .hs:last-child{border-bottom:none}
+
+  /* SECTIONS */
+  .pg,.syshdr,.trtop,.cwrap{grid-template-columns:1fr;gap:2.5rem}
+  .pphoto{aspect-ratio:16/9;max-height:280px}
+  .pilot{grid-template-columns:1fr}
+  .pimg{min-height:220px}
+  .pillars{grid-template-columns:1fr}
+  .istrip{grid-template-columns:1fr 1fr}
+  .sysfeat{height:320px}
+  .sysfeat-txt{left:1.5rem;max-width:85%}
+  .sysfeat-txt h3{font-size:1.4rem}
+
+  /* FORM */
+  .frow{grid-template-columns:1fr}
+
+  /* FOOTER */
+  .fl{display:none}
+}
   </style>
 </head>
 <body>

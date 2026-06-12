@@ -1725,6 +1725,231 @@ body.light .nav-logo-img-real {
   /* filter: brightness(0); */
 }
 
+
+/* ── SYSTEM STATUS ────────────────────────────────────────────── */
+.status-section {
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+.status-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.status-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  letter-spacing: -0.015em;
+}
+.status-header h2 em { font-style: normal; color: var(--green); }
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(74,180,74,0.08);
+  border: 1px solid rgba(74,180,74,0.25);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.status-context {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 720px;
+  margin-bottom: 40px;
+  padding: 20px 24px;
+  background: var(--bg2);
+  border-left: 3px solid var(--green);
+  border-radius: 0 4px 4px 0;
+}
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.phase-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.phase-card.active {
+  border-color: var(--green);
+}
+.phase-card.active::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--green), var(--blue));
+}
+.phase-card.upcoming {
+  opacity: 0.65;
+}
+.phase-number {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 8px;
+}
+.phase-card.active .phase-number { color: var(--green); }
+.phase-title {
+  font-family: var(--serif);
+  font-size: clamp(15px, 2vw, 19px);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  color: var(--white);
+}
+.phase-dates {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.phase-dates::before {
+  content: '';
+  display: block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+.phase-card.active .phase-dates::before { background: var(--green); }
+.phase-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.phase-metric {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  background: rgba(74,180,74,0.06);
+  border: 1px solid rgba(74,180,74,0.15);
+  border-radius: 4px;
+  padding: 8px 12px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+.phase-metric::before {
+  content: '→';
+  flex-shrink: 0;
+}
+/* Battery config table */
+.battery-table-wrap {
+  margin-top: 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.battery-table-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.battery-table-header h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.battery-table-header span {
+  font-size: 11px;
+  color: var(--dim);
+  font-weight: 300;
+}
+.battery-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.battery-table th {
+  text-align: left;
+  padding: 10px 16px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+}
+.battery-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.battery-table tr:last-child td { border-bottom: none; }
+.battery-table td:first-child {
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+}
+.battery-table tr.recommended td {
+  background: rgba(74,180,74,0.04);
+}
+.battery-table tr.recommended td:first-child { color: var(--green); }
+.recommended-tag {
+  display: inline-block;
+  background: rgba(74,180,74,0.1);
+  border: 1px solid rgba(74,180,74,0.2);
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 100px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .phase-grid { grid-template-columns: 1fr; }
+  .status-header { flex-direction: column; gap: 12px; }
+}
+@media (max-width: 600px) {
+  .battery-table th:nth-child(3),
+  .battery-table td:nth-child(3) { display: none; }
+}
+
 </style>
 </head>
 <body>
@@ -1818,7 +2043,7 @@ body.light .nav-logo-img-real {
         <button class="btn-ghost" onclick="go('tech')">See how the system works <span class="arrow">→</span></button>
       </div>
       <div class="intro-right">
-        <p style="font-size:16px;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:20px;">Water moves through a closed loop inside each unit. That circulation conditions and stabilizes stored energy, delivering it steadily to connected loads. The same water feeds crops growing on top.</p>
+        <p style="font-size:16px;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:20px;">Water moves through a closed loop inside each unit. That circulation conditions and stabilizes stored energy, delivering it steadily to connected loads. The same water feeds crops growing on top. No sunlight required. No wind.</p>
         <p style="font-size:16px;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:20px;">Each unit is a node. One node is useful on one block. A network of nodes across a development, campus or district starts behaving like distributed resilience infrastructure — managing reserve, smoothing load, keeping things running when the grid can't.</p>
         <p style="font-size:16px;line-height:1.8;color:var(--muted);font-weight:300;">On-grid, off-grid or hybrid. When the grid goes down, Gaia keeps running.</p>
       </div>
@@ -1896,8 +2121,8 @@ body.light .nav-logo-img-real {
     <div class="traction-grid-2">
       <div class="traction-card">
         <span class="traction-org">TEDCO</span>
-        <div class="traction-role">Concept Capital Grant</div>
-        <p class="traction-desc">Maryland's state technology fund. Awarded a Concept Capital grant backing Gaia before the LA deployment was announced.</p>
+        <div class="traction-role">Concept Capital — $25K</div>
+        <p class="traction-desc">Maryland's state technology fund awarded a Concept Capital grant in March 2026. Backed by the state before the city deployment was announced.</p>
       </div>
       <div class="traction-card">
         <span class="traction-org">Alabama AMP Center</span>
@@ -1913,7 +2138,7 @@ body.light .nav-logo-img-real {
           Active Pilot Customer
         </div>
         <h3>LA Social District — Downtown Los Angeles</h3>
-        <p>Two units conditioning energy on-site near Pico Station. Live in one of the highest-traffic public corridors in the city. Ribbon cutting June 4, 2026.</p>
+        <p>Active pilot deployment at Pico Station. Two units conditioning energy on-site in one of the highest-traffic public corridors in the city. Collecting real-world performance data now.</p>
       </div>
       <span class="traction-pilot-cta">See the deployment <span class="arrow">→</span></span>
     </div>
@@ -2048,7 +2273,7 @@ body.light .nav-logo-img-real {
         <span class="label">Active Deployment</span>
       </div>
       <h1>Downtown<br><em>Los Angeles.</em></h1>
-      <div class="pilot-hero-sub">June 4, 2026. Ribbon cutting at La Lo La Rooftop.</div>
+      <div class="pilot-hero-sub">Active Pilot Deployment — Downtown Los Angeles.</div>
     </div>
   </div>
 
@@ -2119,7 +2344,7 @@ body.light .nav-logo-img-real {
       <div>
         <span class="label">What Gaia Delivers</span>
         <h2>Power. Crops.<br><em>The same footprint.</em></h2>
-        <p>Each unit draws in stored energy, conditions and stabilizes it on-site, and delivers it steadily to connected loads — keeping the corridor lit at pedestrian scale. Inside the same frame, the system grows plants using the same water that powers the lights. No separate infrastructure. Runs on-grid, off-grid or hybrid.</p>
+        <p>The Gaia pilot is active and currently collecting operational data. Each unit draws in stored energy, conditions and stabilizes it on-site, and delivers it steadily to connected loads — keeping the corridor lit at pedestrian scale. Inside the same frame, the system grows plants using the same water that powers the lights. No separate infrastructure. Runs on-grid, off-grid or hybrid.</p>
         <p>It is durable, tamper-resistant and designed to run continuously with minimal manual oversight. Public hardware built for public life.</p>
       </div>
     </div>
@@ -2133,76 +2358,88 @@ body.light .nav-logo-img-real {
     </div>
 
 
-    <!-- LAUNCH EVENT -->
-    <div class="wrap event-section">
 
-      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);">
-        <h2 style="font-family:var(--serif);font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-0.01em;">The Launch <em style="font-style:normal;color:var(--green);">Event</em></h2>
-        <span class="label">June 4, 2026 — Los Angeles</span>
+    <!-- SYSTEM STATUS -->
+    <div class="wrap status-section">
+
+      <div class="status-header">
+        <h2>Pilot <em>Status.</em></h2>
+        <span class="status-badge"><span class="live-dot"></span>Active — Collecting Data</span>
       </div>
 
-      <div class="event-card">
+      <p class="status-context">The Gaia pilot is active and operating as a live field test environment. Because the system is currently undergoing performance validation, certain features and loads may be adjusted, cycled, or temporarily offline as part of ongoing testing. This four-phase validation sequence establishes the performance baseline for all future commercial deployments.</p>
 
-        <div class="event-left">
-          <div>
-            <div class="event-eyebrow">
-              <div class="live-dot"></div>
-              <span class="label">Open to the Public — Register Free</span>
-            </div>
-            <h2>A streetlight<br>with a garden inside<br><em>lands in LA.</em></h2>
-            <p class="event-desc">Join Gaia Agricultural Technology, the LA Social District and LACI on the rooftop above downtown Los Angeles to mark the public launch of the city's first on-site energy conditioning and crop infrastructure deployment. Then move to the installation at Pico Station for the ribbon cutting.</p>
-          </div>
+      <!-- Battery Node Config -->
+      <div class="battery-table-wrap" style="margin-bottom:24px;">
+        <div class="battery-table-header">
+          <h4>Current Lighting Load — Pico Station</h4>
+          <span>0.7W per bulb · ~50 bulbs per tree · ~35W per tree</span>
+        </div>
+        <table class="battery-table">
+          <thead>
+            <tr>
+              <th>Battery Configuration</th>
+              <th>Storage</th>
+              <th>Max Load</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>100Ah Node</td>
+              <td>~1.2 kWh</td>
+              <td>1–2 trees</td>
+              <td>Testing, demonstration, low-load deployments</td>
+            </tr>
+            <tr>
+              <td>400Ah Node</td>
+              <td>~5.1 kWh</td>
+              <td>4–6 trees</td>
+              <td>Medium-scale deployments</td>
+            </tr>
+            <tr class="recommended">
+              <td>800Ah Node<span class="recommended-tag">LA Pilot</span></td>
+              <td>~10.2 kWh</td>
+              <td>8+ trees</td>
+              <td>Extended run times and public installations</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-          <div>
-            <div class="event-details">
-              <div class="event-detail-row">
-                <span class="event-detail-icon">📅</span>
-                <div>
-                  <span class="event-detail-lbl">Date</span>
-                  <span class="event-detail-val">Thursday, June 4, 2026</span>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">🕡</span>
-                <div>
-                  <span class="event-detail-lbl">Time</span>
-                  <span class="event-detail-val">6:30 PM – 8:00 PM PST</span>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">📍</span>
-                <div>
-                  <span class="event-detail-lbl">Location</span>
-                  <span class="event-detail-val">La Lo La Rooftop — Moxy &amp; AC Hotel<br>1260 S Figueroa St, Los Angeles, CA 90015</span>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">✂️</span>
-                <div>
-                  <span class="event-detail-lbl">Ribbon Cutting</span>
-                  <span class="event-detail-val">Pico Station, LA Social District — following the rooftop reception</span>
-                </div>
-              </div>
-            </div>
+      <!-- Phase Grid -->
+      <div class="phase-grid">
 
-            <a href="https://luma.com/1o77lsoy" target="_blank" class="event-register-btn">
-              Register on Luma
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-            </a>
-
-            <div class="event-partners-strip">
-              <span class="event-partners-label">Hosted by</span>
-              <span class="chip">Gaia Agricultural Technology</span>
-              <span class="chip">LA Social District</span>
-              <span class="chip">LACI</span>
-            </div>
-          </div>
+        <div class="phase-card active">
+          <span class="phase-number">Phase 01 — Current</span>
+          <div class="phase-title">Standardizing Node Capacity</div>
+          <div class="phase-dates">June 8 – June 19, 2026</div>
+          <p class="phase-desc">Establishing baseline performance for each battery node configuration under real-world load conditions. The immediate priority is upgrading to an 800Ah battery to provide sufficient reserve capacity and ensure reliable operation throughout the deployment period.</p>
+          <div class="phase-metric">Establish confirmed load-to-battery ratios for each node tier under operational conditions at Pico Station.</div>
         </div>
 
-        <div class="event-flyer" id="event-flyer-slot">
-          <img src="images/gaia-ribbon-cutting-flyer.jpg"
-               alt="Gaia ribbon cutting event — June 4, 2026"
-               style="width:100%;height:100%;object-fit:contain;background:var(--bg3);">
+        <div class="phase-card upcoming">
+          <span class="phase-number">Phase 02 — Upcoming</span>
+          <div class="phase-title">Solar Assist Validation</div>
+          <div class="phase-dates">Following Phase 01</div>
+          <p class="phase-desc">Each node paired with a 200W solar array, battery storage, charge controller and monitoring platform. Testing measures daily solar contribution, battery recharge rates, net energy balance and optimal battery sizing for future deployments.</p>
+          <div class="phase-metric">Determine the percentage of daily lighting load offset by solar generation and identify optimal battery sizing ratios.</div>
+        </div>
+
+        <div class="phase-card upcoming">
+          <span class="phase-number">Phase 03 — Upcoming</span>
+          <div class="phase-title">Turbine Recovery Validation</div>
+          <div class="phase-dates">June 22 – July 6, 2026</div>
+          <p class="phase-desc">A 12V turbine with a target output of ~5A is integrated into a dedicated recovery charging circuit with an independent recovery battery. Testing measures continuous recovery output, turbine configurations, battery charging rates and long-duration charging performance.</p>
+          <div class="phase-metric">Establish realistic recovery contributions and identify where turbine-assisted charging provides the greatest operational value.</div>
+        </div>
+
+        <div class="phase-card upcoming">
+          <span class="phase-number">Phase 04 — Upcoming</span>
+          <div class="phase-title">Split Charging &amp; Battery Reserve</div>
+          <div class="phase-dates">July 6 – July 31, 2026</div>
+          <p class="phase-desc">Evaluates Gaia's ability to manage multiple battery assets simultaneously. Testing covers primary load battery performance, secondary recovery battery performance, charging prioritization, battery reserve management and distributed storage architecture. This phase directly supports the development of Gaia's future digital split-charging platform.</p>
+          <div class="phase-metric">Foundational data for battery reserve applications and the split-charging platform specification.</div>
         </div>
 
       </div>
@@ -2269,7 +2506,7 @@ body.light .nav-logo-img-real {
     <div class="tech-hero-inner">
       <span class="label">The System</span>
       <h1>Water in.<br>Power out.<br><em>Crops on top.</em></h1>
-      <p>The plain version first. Energy enters the unit. A closed-loop water system conditions and stabilizes it. The same water feeds crops growing above.</p>
+      <p>The plain version first. Energy enters the unit. A closed-loop water system conditions and stabilizes it. The same water feeds crops growing above. No sunlight required. No wind. It just runs.</p>
     </div>
   </div>
 
@@ -2363,7 +2600,7 @@ body.light .nav-logo-img-real {
           <tr><td>Grid operation</td><td>On-grid, off-grid or hybrid</td></tr>
           <tr><td>Off-grid capability</td><td>Pre-charged split-charge battery configuration</td></tr>
           <tr><td>Water system</td><td>40-gallon closed loop — fully recirculating</td></tr>
-          <tr><td>Water replenishment</td><td>~2 to 3 gallons every 2 to 3 months (crop dependent. Some plants require more so may require more frequent refilling)</td></tr>
+          <tr><td>Water replenishment</td><td>~2 to 3 gallons every 2 to 3 months</td></tr>
           <tr><td>Growing system</td><td>Tri-Root Zone (soil, aeroponic, deep water culture)</td></tr>
           <tr><td>Water efficiency</td><td>90% less than traditional farming</td></tr>
           <tr><td>Unit footprint</td><td>Modular and stackable</td></tr>
@@ -2452,9 +2689,9 @@ function handleSubmit(e) {
   })
   .then(res => {
     if (res.ok) {
-      btn.textContent = 'Message Sent ✓';
+      btn.textContent = 'Message Sent';
       btn.style.background = '#2d8f2d';
-      note.textContent = 'We will be in touch within one business day.';
+      note.textContent = "We will be in touch within one business day.";
       form.reset();
       setTimeout(() => {
         btn.textContent = 'Send Message';
